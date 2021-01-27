@@ -1,7 +1,11 @@
 <template>
 	<div class="head">
 		<div class="container">
-			<div class="text welcome">欢迎使用{{ hello }}</div>
+			<div class="text welcome">
+				<span v-if="type === 0">欢迎使用{{ hello }} </span>
+				<span v-if="type > 1">首页</span>
+				<span v-if="type > 2">返回</span>
+			</div>
 			<div class="text title">{{ title }}</div>
 			<div class="text">{{ time }}</div>
 		</div>
@@ -9,11 +13,14 @@
 </template>
 <script>
 export default {
+	props: [
+		"type"
+	],
 	data() {
 		return {
 			hello: "文书填写助手",
 			title: "案件类型",
-			time: "2021"
+			time: "2021",
 		}
 	}
 }
@@ -42,13 +49,16 @@ export default {
 }
 .welcome {
 	width: 248px;
-	height: 24px;
+	height: 28px;
 	font-size: 24px;
+	margin-top: 30px;
+	margin-left: -130px;
 }
 .title {
 	width: 247px;
-	height: 60px;
+	height: 70px;
 	font-size: 60px;
+	margin-top: 15px;
 }
 .time {
 }

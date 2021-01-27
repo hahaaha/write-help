@@ -1,6 +1,6 @@
 <template>
-	<Head />
-	<Edit />
+	<Head :type="type" />
+	<Edit @jump="jump" />
 	<Footer />
 </template>
 
@@ -11,6 +11,11 @@ import Footer from './components/Footer.vue'
 
 export default {
 	name: 'App',
+	data() {
+		return {
+			type: 0
+		}
+	},
 	methods: {
 		jump(url) {
 			this.$router.push(url)

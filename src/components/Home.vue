@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		<div class="block" @click="jump('/temp')"></div>
+		<div class="block" @click="jump('/type')"></div>
 		<div class="block"></div>
 	</div>
 </template>

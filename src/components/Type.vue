@@ -15,16 +15,16 @@
 		<swiper-slide @click="jump('/temp')"
 			><img src="../assets/round.png" class="slide_img" alt=""
 		/></swiper-slide>
-		<swiper-slide
+		<swiper-slide @click="jump('/temp')"
 			><img src="../assets/round.png" class="slide_img" alt=""
 		/></swiper-slide>
-		<swiper-slide
+		<swiper-slide @click="jump('/temp')"
 			><img src="../assets/round.png" class="slide_img" alt=""
 		/></swiper-slide>
-		<swiper-slide
+		<swiper-slide @click="jump('/temp')"
 			><img src="../assets/round.png" class="slide_img" alt=""
 		/></swiper-slide>
-		<swiper-slide
+		<swiper-slide @click="jump('/temp')"
 			><img src="../assets/round.png" class="slide_img" alt=""
 		/></swiper-slide>
 	</swiper>

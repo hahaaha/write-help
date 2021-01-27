@@ -90,12 +90,7 @@
 					>
 				</el-checkbox-group>
 
-				<el-checkbox-group
-					v-model="checkedCities"
-					:min="1"
-					:max="2"
-					v-if="active === 2"
-				>
+				<el-checkbox-group v-model="checkedCities" v-if="active === 2">
 					<el-checkbox
 						v-for="city in cities"
 						:label="city"
@@ -144,7 +139,7 @@
 	</div>
 </template>
 <script>
-const cityOptions = ['上海', '北京', '广州', '深圳']
+const cityOptions = ['婚前双方缺乏了解', '相处生疏', '广州', '深圳']
 export default {
 	data() {
 		return {
@@ -240,5 +235,9 @@ export default {
 .function .print img {
 	margin-top: 80px;
 	margin-bottom: 30px;
+}
+.el-checkbox {
+	display: block;
+	margin: 10px 0;
 }
 </style>
