@@ -1,6 +1,6 @@
 <template>
 	<Head :type="type" />
-	<Edit @jump="jump" />
+	<Edit />
 	<Footer />
 </template>
 

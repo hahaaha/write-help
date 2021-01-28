@@ -6,6 +6,9 @@
 </template>
 <script>
 export default {
+	created() {
+		this.$root.$data.type = 0
+	},
 	methods: {
 		jump(url) {
 			this.$router.push(url)

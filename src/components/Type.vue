@@ -40,6 +40,9 @@ import 'swiper/swiper-bundle.min.css'
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export default {
+	created() {
+		this.$root.$data.type = 1
+	},
 	components: {
 		Swiper,
 		SwiperSlide,

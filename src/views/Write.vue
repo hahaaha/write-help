@@ -158,6 +158,10 @@ export default {
 			cities: cityOptions
 		}
 	},
+	created() {
+		this.$root.$data.type = 2
+		console.log(this.$root.$data)
+	},
 	methods: {
 		next() {
 			if (this.active++ > 3) this.active = 0;
@@ -239,5 +243,20 @@ export default {
 .el-checkbox {
 	display: block;
 	margin: 10px 0;
+	padding-bottom: 10px;
+	border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+}
+:deep() .el-checkbox__inner {
+	width: 20px;
+	height: 20px;
+}
+:deep() .el-checkbox__input.is-checked .el-checkbox__inner::after {
+	transform: rotate(45deg) scale(1.8);
+	top: 2px;
+	left: 7px;
+}
+.form {
+	padding: 10px;
+	box-sizing: border-box;
 }
 </style>

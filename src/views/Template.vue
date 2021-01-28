@@ -25,6 +25,10 @@
 </template>
 <script>
 export default {
+	created() {
+		this.$root.$data.type = 2
+		console.log(this.$root.$data)
+	},
 	methods: {
 		jump(url) {
 			this.$router.push(url)
