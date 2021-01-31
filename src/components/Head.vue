@@ -31,6 +31,7 @@
 	</div>
 </template>
 <script>
+import dayjs from 'dayjs'
 export default {
 	props: [
 		"type"
@@ -42,12 +43,21 @@ export default {
 			time: "2021",
 		}
 	},
+	created() {
+		this.currentTime()
+	},
 	methods: {
 		back() {
 			this.$router.go(-1)
 		},
 		jump(url) {
 			this.$router.push(url)
+		},
+		currentTime() {
+			this.time = dayjs().format('YYYY-MM-DD HH:mm')
+			setInterval(() => {
+				this.time = dayjs().format('YYYY-MM-DD HH:mm')
+			}, 500)
 		}
 	}
 }
@@ -64,6 +74,7 @@ export default {
 .container {
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 }
 .text {
 	font-family: Microsoft YaHei;

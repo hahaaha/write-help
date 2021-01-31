@@ -17,8 +17,15 @@
 		<div class="temp_container">
 			<div class="temp_content"></div>
 			<div class="temp_content_btn">
-				<button>返回</button
-				><button @click="jump('/write')">开始填写</button>
+				<div class="form_btn">
+					<el-button type="primary" class="back">返回</el-button>
+					<el-button
+						type="primary"
+						class="submit"
+						@click="jump('/write')"
+						>开始填写</el-button
+					>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -68,6 +75,22 @@ export default {
 	width: 1100px;
 	height: 647px;
 	background: #fff;
-	margin-bottom: 28px;
+	margin-bottom: 14px;
+}
+.form_btn {
+	width: 1100px;
+	text-align: center;
+}
+.back {
+	width: 307px;
+	height: 90px;
+	font-size: 38px;
+}
+.submit {
+	width: 307px;
+	height: 90px;
+	font-size: 38px;
+	background-color: #fb9e20;
+	border-color: #fb9e20;
 }
 </style>

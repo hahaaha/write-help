@@ -89,15 +89,24 @@
 						>{{ city }}</el-checkbox
 					>
 				</el-checkbox-group>
-
-				<el-checkbox-group v-model="checkedCities" v-if="active === 2">
-					<el-checkbox
-						v-for="city in cities"
-						:label="city"
-						:key="city"
-						>{{ city }}</el-checkbox
-					>
-				</el-checkbox-group>
+				<div v-if="active === 2">
+					<el-checkbox-group v-model="checkedCities">
+						<el-checkbox
+							v-for="city in cities"
+							:label="city"
+							:key="city"
+							>{{ city }}</el-checkbox
+						>
+					</el-checkbox-group>
+					<div class="addbtn">
+						<img
+							src="../assets/addbtn.png"
+							width="330"
+							height="90"
+							alt=""
+						/>
+					</div>
+				</div>
 			</div>
 			<div class="finish" v-if="active === 3">
 				<img
@@ -258,5 +267,8 @@ export default {
 .form {
 	padding: 10px;
 	box-sizing: border-box;
+}
+.addbtn {
+	text-align: center;
 }
 </style>
