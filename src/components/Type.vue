@@ -6,10 +6,12 @@
 		<div>执行类</div>
 	</div>
 	<swiper
-		:slides-per-view="3"
 		navigation
-		:watchSlidesProgress=true
-		:loop=true
+		slides-per-view="auto"
+		:watchSlidesProgress="true"
+		:loop="true"
+		:loopedSlides="5"
+		:centeredSlides="true"
 		@slideChange="onSlideChange"
 		@progress="onProgress"
 	>
@@ -55,30 +57,27 @@ export default {
 		onSlideChange() {
 			console.log('slide change')
 		},
-		onProgress(swiper,progress) {
+		onProgress(swiper) {
 			const slides = swiper.slides
-			console.log(swiper)
-			console.log(slides)
-			console.log(progress)
-			// for (let i = 0; i < slides.length; i++) {
-			// 	const slide = slides.eq(i);
-			// 	const slideProgress = slide.progress
-			// 	console.log(slide)
-			// 	console.log(slideProgress)
-			// 	let modify = 1;
-			// 	if (Math.abs(slideProgress) > 1) {
-			// 		modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
-			// 	}
-			// 	const translate = slideProgress * modify * 260 + 'px';
-			// 	const scale = 1 - Math.abs(slideProgress) / 5;
-			// 	const zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
-			// 	slide.transform('translateX(' + translate + ') scale(' + scale + ')');
-			// 	slide.css('zIndex', zIndex);
-			// 	slide.css('opacity', 1);
-			// 	if (Math.abs(slideProgress) > 3) {
-			// 		slide.css('opacity', 0);
-			// 	}
-			// }
+			console.log(slides.length)
+			for (let i = 0; i < slides.length; i++) {
+				const slide = slides.eq(i)
+				const slideProgress = slides[i].progress
+				console.log(slideProgress)
+				let modify = 1;
+				if (Math.abs(slideProgress) > 1) {
+					modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+				}
+				const translate = slideProgress * modify * 30 + 'px';
+				const scale = 1 - Math.abs(slideProgress) / 5;
+				const zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+				slide.transform('translateX(' + translate + ') scale(' + scale + ')');
+				slide.css('zIndex', zIndex);
+				slide.css('opacity', 1);
+				if (Math.abs(slideProgress) > 3) {
+					slide.css('opacity', 0);
+				}
+			}
 			// console.log(progress)
 			// const slide =progress.slides.eq(0) 
 			// slide.transform('scale(0.3)')
@@ -119,5 +118,9 @@ export default {
 	position: relative;
 	top: 250px;
 	text-align: center;
+}
+.swiper-slide {
+	width: 404px;
+	height: 404px;
 }
 </style>
