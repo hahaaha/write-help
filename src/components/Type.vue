@@ -7,10 +7,11 @@
 	</div>
 	<swiper
 		:slides-per-view="3"
-		:space-between="50"
 		navigation
-		@swiper="onSwiper"
+		:watchSlidesProgress=true
+		:loop=true
 		@slideChange="onSlideChange"
+		@progress="onProgress"
 	>
 		<swiper-slide @click="jump('/temp')"
 			><img src="../assets/round.png" class="slide_img" alt=""
@@ -54,6 +55,36 @@ export default {
 		onSlideChange() {
 			console.log('slide change')
 		},
+		onProgress(swiper,progress) {
+			const slides = swiper.slides
+			console.log(swiper)
+			console.log(slides)
+			console.log(progress)
+			// for (let i = 0; i < slides.length; i++) {
+			// 	const slide = slides.eq(i);
+			// 	const slideProgress = slide.progress
+			// 	console.log(slide)
+			// 	console.log(slideProgress)
+			// 	let modify = 1;
+			// 	if (Math.abs(slideProgress) > 1) {
+			// 		modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+			// 	}
+			// 	const translate = slideProgress * modify * 260 + 'px';
+			// 	const scale = 1 - Math.abs(slideProgress) / 5;
+			// 	const zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+			// 	slide.transform('translateX(' + translate + ') scale(' + scale + ')');
+			// 	slide.css('zIndex', zIndex);
+			// 	slide.css('opacity', 1);
+			// 	if (Math.abs(slideProgress) > 3) {
+			// 		slide.css('opacity', 0);
+			// 	}
+			// }
+			// console.log(progress)
+			// const slide =progress.slides.eq(0) 
+			// slide.transform('scale(0.3)')
+			// slide.css('opacity', 0.5)
+			// console.log(progress.slides.eq(0).transform('scale(0.5)'))
+		},
 		jump(url) {
 			this.$router.push(url)
 		}
@@ -87,5 +118,6 @@ export default {
 .swiper-container {
 	position: relative;
 	top: 250px;
+	text-align: center;
 }
 </style>
