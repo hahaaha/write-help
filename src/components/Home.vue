@@ -1,13 +1,18 @@
 <template>
 	<div class="home">
-		<div class="block" @click="jump('/type')"></div>
-		<div class="block"></div>
+		<!-- <div class="block" @click="jump('/type')"></div>
+		<div class="block"></div> -->
 	</div>
 </template>
 <script>
+import axios from 'axios'
 export default {
 	created() {
 		this.$root.$data.type = 0
+		axios.get('/api/ffapi/caseTypes')
+			.then(function (response) {
+				console.log(response);
+			})
 	},
 	methods: {
 		jump(url) {

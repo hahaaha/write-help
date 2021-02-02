@@ -1,13 +1,13 @@
 <template>
-	<Head :type="type" />
+	<!-- <Head :type="type" /> -->
 	<Edit />
-	<Footer />
+	<!-- <Footer / -->
 </template>
 
 <script>
-import Head from './components/Head.vue'
+// import Head from './components/Head.vue'
 import Edit from './components/Edit.vue'
-import Footer from './components/Footer.vue'
+// import Footer from './components/Footer.vue'
 
 export default {
 	name: 'App',
@@ -22,9 +22,9 @@ export default {
 		}
 	},
 	components: {
-		Head,
+		// Head,
 		Edit,
-		Footer
+		// Footer
 	}
 }
 </script>
