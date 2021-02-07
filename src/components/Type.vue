@@ -1,6 +1,6 @@
 <template>
 	<div class="type_btn">
-		<div>民事起诉类</div>
+		<div @click="change">民事起诉类</div>
 		<div>行政类</div>
 		<div>刑事类</div>
 		<div>执行类</div>
@@ -15,7 +15,13 @@
 		@slideChange="onSlideChange"
 		@progress="onProgress"
 	>
-		<swiper-slide @click="jump('/temp')"
+		<swiper-slide
+			v-for="(v, index) in AllSlide"
+			:key="index"
+			@click="jump(v.to)"
+			><img :src="v.url" class="slide_img" alt=""
+		/></swiper-slide>
+		<!-- <swiper-slide @click="jump('/temp')"
 			><img src="../assets/round.png" class="slide_img" alt=""
 		/></swiper-slide>
 		<swiper-slide @click="jump('/temp')"
@@ -26,10 +32,7 @@
 		/></swiper-slide>
 		<swiper-slide @click="jump('/temp')"
 			><img src="../assets/round.png" class="slide_img" alt=""
-		/></swiper-slide>
-		<swiper-slide @click="jump('/temp')"
-			><img src="../assets/round.png" class="slide_img" alt=""
-		/></swiper-slide>
+		/></swiper-slide> -->
 	</swiper>
 </template>
 <script>
@@ -43,6 +46,27 @@ import 'swiper/swiper-bundle.min.css'
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export default {
+	data() {
+		return {
+			AllSlide: [{
+				url: require('../assets/round.png'),
+				to: 'temp'
+			}, {
+				url: require('../assets/round.png'),
+				to: 'temp'
+			}, {
+				url: require('../assets/round.png'),
+				to: 'temp'
+			}, {
+				url: require('../assets/round.png'),
+				to: 'temp'
+			}, {
+				url: require('../assets/round.png'),
+				to: 'temp'
+			}]
+		}
+
+	},
 	created() {
 		this.$root.$data.type = 1
 	},
@@ -86,6 +110,15 @@ export default {
 		},
 		jump(url) {
 			this.$router.push(url)
+		},
+		change() {
+			this.AllSlide = [{
+				url: require('../assets/round.png'),
+				to: 'temp'
+			}, {
+				url: require('../assets/round.png'),
+				to: 'temp'
+			}]
 		}
 	},
 };
